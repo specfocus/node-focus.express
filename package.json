@@ -1,0 +1,36 @@
+{
+  "name": "@specfocus/node-focus.express",
+  "version": "0.0.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/specfocus/node-focus.express.git"
+  },
+  "description": "Express utils",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "nodemon --delay 500ms --watch \"src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node src/index.ts --trace-warnings\"",
+    "prod": "node .",
+    "exjest": "yarn node --experimental-vm-modules $(yarn bin jest)",
+    "test": "yarn exjest --coverage",
+    "test:watch": "yarn exjest --watch"
+  },
+  "author": "Lucas M. Oromi <lucas@specfocus.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@specfocus/spec-focus.ioc": "1.0.0",
+    "dotenv": "^16.0.1",
+    "http-errors": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.31",
+    "jest": "^28.1.0",
+    "nodemon": "^2.0.16",
+    "ts-jest": "^28.0.2",
+    "tslint": "^6.1.3",
+    "typescript": "^4.6.4"
+  }
+}
