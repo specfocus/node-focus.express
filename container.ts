@@ -1,7 +1,7 @@
 import { Container, type Resolver } from '@specfocus/spec-focus.ioc';
 import { type Response } from 'express';
 
-const create = (res: Response) => new Container(res.locals);
+const create = (res: Response): Container => Container.create(res.locals);
 
 export const register = (resolver: Resolver) => Container.push(resolver);
 
